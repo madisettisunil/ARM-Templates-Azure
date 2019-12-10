@@ -16,6 +16,6 @@ az group deployment create --resource-group demoResourcegroup --name WorkspaceDe
 
 az deployment create –-name Lighthouse \
                      –-location westeurope \
-                     --template-uri <templateUri> \
-                     --parameters <parameterFile> \
+                     --template-uri https://raw.githubusercontent.com/madisettisunil/ARM-Templates-Azure/master/rgDelegatedResourceManagement.json \
+                     --parameters RGdelegatedResourceManagement.parametres.json \
                      --verbose
