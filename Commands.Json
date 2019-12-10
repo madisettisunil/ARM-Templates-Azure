@@ -1,4 +1,4 @@
-*******Following command will deploy Empty resource group in Azure subscription*************
+*******Following command will deploy Empty resource group in current Azure subscription*************
 
 az deployment create \
   --subscription defense.fun \
@@ -6,3 +6,8 @@ az deployment create \
   --location westeurope \
   --template-uri https://raw.githubusercontent.com/madisettisunil/ARM-Templates-Azure/master/emptyRG.json \
   --parameters rgName=demoResourcegroup rgLocation=westeurope
+
+
+*******Following command will deploy Empty Workspace in current Azure subscription*************
+
+az group deployment create --resource-group demoResourcegroup --name WorkspaceDemo --template-uri https://raw.githubusercontent.com/madisettisunil/ARM-Templates-Azure/master/EmptyWorkspace.json
