@@ -1,7 +1,6 @@
 *******Following command will deploy Empty resource group in current Azure subscription*************
 
 az deployment create \
-  --subscription defense.fun \
   --name demoDeployment \
   --location westeurope \
   --template-uri https://raw.githubusercontent.com/madisettisunil/ARM-Templates-Azure/master/emptyRG.json \
