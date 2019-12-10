@@ -4,4 +4,4 @@ az deployment create \
   --name demoDeployment \
   --location centralus \
   --template-uri https://raw.github.com/madisettisunil/ARM-Templates-Azure/blob/master/emptyRG.json \
-  --parameters rgName=demoResourceGroup rgLocation=centralus
+  --parameters rgName=demoResourcegroup rgLocation=westeurope
