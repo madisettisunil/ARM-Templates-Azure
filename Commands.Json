@@ -9,8 +9,8 @@ az deployment create \
 
 *******Following command will deploy Empty Workspace in current Azure subscription*************
 
-az group deployment create --resource-group demoResourcegroup --name WorkspaceDemo --template-uri https://raw.githubusercontent.com/madisettisunil/ARM-Templates-Azure/master/EmptyWorkspace.json
-
+azure config mode arm
+azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json --workspaceName <workspace-name> --location <location>
 
 *******Following command will deploy lighthouse connector to resource group*************
 
