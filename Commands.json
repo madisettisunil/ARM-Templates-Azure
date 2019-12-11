@@ -20,8 +20,18 @@ New-AzResourceGroupDeployment -ResourceGroupName demoResourcegroup -TemplateFile
 
 *******Following command will deploy lighthouse connector to resource group*************
 
-az deployment create –-name Lighthouse \
-                     –-location westeurope \
-                     --template-uri https://raw.githubusercontent.com/madisettisunil/ARM-Templates-Azure/master/rgDelegatedResourceManagement.json \
-                     --parameters RGdelegatedResourceManagement.parametres.json \
-                     --verbose
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+# Deploy Azure Resource Manager template using template and parameter file locally
+New-AzDeployment -Name <deploymentName> `
+                 -Location <AzureRegion> `
+                 -TemplateFile <pathToTemplateFile> `
+                 -TemplateParameterFile <pathToParameterFile> `
+                 -Verbose
+
+# Deploy Azure Resource Manager template that is located externally
+New-AzDeployment -Name <deploymentName> `
+                 -Location <AzureRegion> `
+                 -TemplateUri <templateUri> `
+                 -TemplateParameterUri <parameterUri> `
+                 -Verbose
