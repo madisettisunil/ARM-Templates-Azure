@@ -1,37 +1,37 @@
-*******Following command will deploy Empty resource group in current Azure subscription*************
 
-az deployment create \
-  --name demoDeployment \
-  --location westeurope \
-  --template-uri https://raw.githubusercontent.com/madisettisunil/ARM-Templates-Azure/master/emptyRG.json \
-  --parameters rgName=demoResourcegroup rgLocation=westeurope
+
+<# Following command is for Installing AZ modules, only install once not needed everytime#>
+
+ Install-Module -Name Az -AllowClobber
+
+<# Following command is for establishing session#>
+
+Set-ExecutionPolicy unrestricted
+
+$Credential = Get-Credential
+Connect-AzAccount -Credential $Credential
+
+<# Following command is for creating resource group#>
+
 
 New-AzDeployment `
   -Name demoDeployment `
-  -Location centralus `
+  -Location westeurope `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
   -rgName demoResourceGroup `
   -rgLocation westeurope
 
 
-*******Following command will deploy Empty Workspace in current Azure subscription*************
+  <# Following command is for creating workspace #>
 
-New-AzResourceGroupDeployment -ResourceGroupName demoResourcegroup -TemplateFile ./template.json -workspacename blabla -location westeurope
 
-*******Following command will deploy lighthouse connector to resource group*************
+New-AzResourceGroupDeployment -ResourceGroupName demoResourcegroup -TemplateFile C:\Users\Sunil\Desktop\SentinelAutomation\deployemptyworkspace.json -workspaceName defaultARMspacesq12348 -location westeurope
 
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-# Deploy Azure Resource Manager template using template and parameter file locally
-New-AzDeployment -Name <deploymentName> `
-                 -Location <AzureRegion> `
-                 -TemplateFile <pathToTemplateFile> `
-                 -TemplateParameterFile <pathToParameterFile> `
-                 -Verbose
+<# Following command is for creating lighthouse connector #>
 
-# Deploy Azure Resource Manager template that is located externally
-New-AzDeployment -Name <deploymentName> `
-                 -Location <AzureRegion> `
-                 -TemplateUri <templateUri> `
-                 -TemplateParameterUri <parameterUri> `
+New-AzDeployment -Name Lighthouse-Template `
+                 -Location westeurope `
+                 -TemplateFile C:\Users\Sunil\Desktop\SentinelAutomation\delegatedResourceManagement.json `
+                 -TemplateParameterFile C:\Users\Sunil\Desktop\SentinelAutomation\delegatedResourceManagement.parameters.json `
                  -Verbose
