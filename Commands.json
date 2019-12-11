@@ -6,6 +6,13 @@ az deployment create \
   --template-uri https://raw.githubusercontent.com/madisettisunil/ARM-Templates-Azure/master/emptyRG.json \
   --parameters rgName=demoResourcegroup rgLocation=westeurope
 
+New-AzDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demoResourceGroup `
+  -rgLocation westeurope
+
 
 *******Following command will deploy Empty Workspace in current Azure subscription*************
 
